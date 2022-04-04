@@ -1,9 +1,14 @@
+//Observer
+
 package trafficlight.gui;
 
 
+import trafficlight.observer.Observer;
+import trafficlight.observer.Subject;
+
 import java.awt.*;
 
-public class TrafficLight extends Light {
+public class TrafficLight extends Light implements Observer {
 
     TrafficLight(Color color) {
         super(color);
@@ -18,5 +23,10 @@ public class TrafficLight extends Light {
         return isOn;
     }
 
-    //TODO implement a part of the pattern here
+    //DONE implement a part of the pattern here
+
+    @Override
+    public void update(Subject s) {
+        turnOn(!isOn);
+    }
 }
